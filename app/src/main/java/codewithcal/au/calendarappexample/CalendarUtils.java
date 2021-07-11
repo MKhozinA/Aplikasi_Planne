@@ -7,16 +7,19 @@ import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+//format kalender digunakan untuk banyak aktifitas dalam aplikasi
 public class CalendarUtils
 {
     public static LocalDate selectedDate;
 
+    //format tanggal
     public static String formattedDate(LocalDate date)
     {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
         return date.format(formatter);
     }
 
+    //format waktu
     public static String formattedTime(LocalTime time)
     {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");

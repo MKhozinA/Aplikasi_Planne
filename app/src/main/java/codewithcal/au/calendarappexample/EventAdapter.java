@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
+//membuat adapter untuk event
 public class EventAdapter extends ArrayAdapter<Event>
 {
     public EventAdapter(@NonNull Context context, List<Event> events)
@@ -25,6 +26,7 @@ public class EventAdapter extends ArrayAdapter<Event>
     {
         Event event = getItem(position);
 
+        //membuat kondisi ketika null
         if (convertView == null)
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.event_cell, parent, false);
 

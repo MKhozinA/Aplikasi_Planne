@@ -20,9 +20,9 @@ import static codewithcal.au.calendarappexample.CalendarUtils.monthYearFromDate;
 
 public class MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
 {
+    //mendeklarasikan variabel dengan tipe data textview dan recycleview
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,12 +34,14 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         setMonthView();
     }
 
+    //Menghubungkan variabel dengan componen pada layout
     private void initWidgets()
     {
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
         monthYearText = findViewById(R.id.monthYearTV);
     }
 
+    //mengatur tampilan perbulan
     private void setMonthView()
     {
         monthYearText.setText(monthYearFromDate(CalendarUtils.selectedDate));
@@ -51,21 +53,25 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         calendarRecyclerView.setAdapter(calendarAdapter);
     }
 
+    //aksi bulan sebelumnya
     public void previousMonthAction(View view)
     {
         CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusMonths(1);
         setMonthView();
     }
 
+    //aksi bulan setelahnya
     public void nextMonthAction(View view)
     {
         CalendarUtils.selectedDate = CalendarUtils.selectedDate.plusMonths(1);
         setMonthView();
     }
 
+    //
     @Override
     public void onItemClick(int position, LocalDate date)
     {
+        //membuat kondisi ketika tanggal tidak null
         if(date != null)
         {
             CalendarUtils.selectedDate = date;
@@ -73,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         }
     }
 
+    //aksi untuk kalender mingguan
     public void weeklyAction(View view)
     {
         startActivity(new Intent(this, WeekViewActivity.class));

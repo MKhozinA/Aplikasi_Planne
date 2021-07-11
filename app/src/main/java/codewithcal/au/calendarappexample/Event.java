@@ -6,8 +6,10 @@ import java.util.ArrayList;
 
 public class Event
 {
+    //mendeklarasikan daftar array statis publik dari event
     public static ArrayList<Event> eventsList = new ArrayList<>();
 
+    //fungsi untuk mengembalikan event untuk tanggal tertentu
     public static ArrayList<Event> eventsForDate(LocalDate date)
     {
         ArrayList<Event> events = new ArrayList<>();
@@ -21,11 +23,12 @@ public class Event
         return events;
     }
 
-
+    //mendeklarasikan variabel
     private String name;
     private LocalDate date;
     private LocalTime time;
 
+    //konstruktor
     public Event(String name, LocalDate date, LocalTime time)
     {
         this.name = name;
@@ -33,6 +36,7 @@ public class Event
         this.time = time;
     }
 
+    //getter dan setter
     public String getName()
     {
         return name;

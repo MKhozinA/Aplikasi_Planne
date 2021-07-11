@@ -18,10 +18,10 @@ import java.util.Date;
 
 public class EventEditActivity extends AppCompatActivity
 {
+    //mendeklarasikan variabel
     private EditText eventNameET;
     private TextView eventDateTV, eventTimeTV;
     private int t2hour,t2minute;
-
     private LocalTime time;
 
     @Override
@@ -33,6 +33,7 @@ public class EventEditActivity extends AppCompatActivity
         time = LocalTime.now();
         eventDateTV.setText("Date: " + CalendarUtils.formattedDate(CalendarUtils.selectedDate));
         eventTimeTV.setOnClickListener(new View.OnClickListener() {
+            //membuat dan menampilkan time picker
             @Override
             public void onClick(View view) {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(
@@ -66,6 +67,7 @@ public class EventEditActivity extends AppCompatActivity
         });
     }
 
+    //Menghubungkan variabel dengan componen pada layout
     private void initWidgets()
     {
         eventNameET = findViewById(R.id.eventNameET);
@@ -73,6 +75,7 @@ public class EventEditActivity extends AppCompatActivity
         eventTimeTV = findViewById(R.id.eventTimeTV);
     }
 
+    //aksi menyimpan form tambah kegiatan
     public void saveEventAction(View view)
     {
         String eventName = eventNameET.getText().toString();

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+//membuat class untuk mendeklarasikan tempat untuk meletakkan isi
 public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
 {
     private final ArrayList<LocalDate> days;
@@ -25,6 +26,7 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
         this.days = days;
     }
 
+    //klik item untuk menerima tanggal lokal
     @Override
     public void onClick(View view)
     {

@@ -20,6 +20,7 @@ import static codewithcal.au.calendarappexample.CalendarUtils.monthYearFromDate;
 
 public class WeekViewActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
 {
+    //mendeklarasikan variabel dengan tipe data textview, recycleview dan list view
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     private ListView eventListView;
@@ -33,6 +34,7 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
         setWeekView();
     }
 
+    //Menghubungkan variabel dengan componen pada layout
     private void initWidgets()
     {
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
@@ -40,6 +42,7 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
         eventListView = findViewById(R.id.eventListView);
     }
 
+    //Mengatur tampilan perminggu
     private void setWeekView()
     {
         monthYearText.setText(monthYearFromDate(CalendarUtils.selectedDate));
@@ -52,13 +55,14 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
         setEventAdpater();
     }
 
-
+    //aksi minggu sebelumnya
     public void previousWeekAction(View view)
     {
         CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusWeeks(1);
         setWeekView();
     }
 
+    //aksi minggu setelahnya
     public void nextWeekAction(View view)
     {
         CalendarUtils.selectedDate = CalendarUtils.selectedDate.plusWeeks(1);
@@ -68,6 +72,7 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
     @Override
     public void onItemClick(int position, LocalDate date)
     {
+        //memanggil utilitas kalender dan mengatur tampilan perminggu
         CalendarUtils.selectedDate = date;
         setWeekView();
     }
@@ -79,6 +84,7 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
         setEventAdpater();
     }
 
+    //mengatur event adapter
     private void setEventAdpater()
     {
         ArrayList<Event> dailyEvents = Event.eventsForDate(CalendarUtils.selectedDate);
@@ -86,6 +92,7 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
         eventListView.setAdapter(eventAdapter);
     }
 
+    //membuat aksi event baru untuk form tambah kegiatan
     public void newEventAction(View view)
     {
         startActivity(new Intent(this, EventEditActivity.class));

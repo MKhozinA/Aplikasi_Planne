@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+//membuat kalender adapter
 class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
 {
     private final ArrayList<LocalDate> days;
@@ -41,11 +42,13 @@ class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
     public void onBindViewHolder(@NonNull CalendarViewHolder holder, int position)
     {
         final LocalDate date = days.get(position);
+        //membuat kondisi apakah null atau tidak
         if(date == null)
             holder.dayOfMonth.setText("");
         else
         {
             holder.dayOfMonth.setText(String.valueOf(date.getDayOfMonth()));
+            //memeriksa untuk melihat apakah tanggal sama dengan yang dipilih
             if(date.equals(CalendarUtils.selectedDate))
                 holder.parentView.setBackgroundColor(Color.LTGRAY);
         }
